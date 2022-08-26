@@ -27,6 +27,16 @@ function Chat({socket, username, room}) {
         });
     }, [socket]);
 
+    useEffect(() => {
+        setCurrentMessage(username + " has just joined the Room");
+    }, [username]);
+
+    useEffect(() => {
+        if (currentMessage === username + " has just joined the Room") {
+            sendMessage()
+        }
+    });
+
     return (
       <div className="chat-window">
           <div className="chat-header">
