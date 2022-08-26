@@ -36,7 +36,7 @@ function Chat({socket, username, room}) {
             sendMessage()
         }
     });
-
+Lo
     return (
       <div className="chat-window">
           <div className="chat-header">
@@ -47,12 +47,14 @@ function Chat({socket, username, room}) {
               {messageList.map((messageContent) => {
                   return <div className="message" key={messageContent.message} id={username === messageContent.author ? "you" : "other"}>
                         <div>
+                            <div className='message-meta'>
+                                <p id='author'>{messageContent.author}</p>
+                            </div>
                             <div className='message-content'>
                                 <p>{messageContent.message}</p>
                             </div>
                             <div className='message-meta'>
                                 <p id='time'>{messageContent.time}</p>
-                                <p id='author'>{messageContent.author}</p>
                             </div>
                         </div>
                       </div>
